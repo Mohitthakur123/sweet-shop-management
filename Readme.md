@@ -139,7 +139,7 @@ npm install
 Create a `.env` file inside the `frontend` directory:
 
 ```env
-VITE_API_BASE_URL='https://sweet-shop-management-hs5m.onrender.com'
+VITE_API_BASE_URL='https://sweet-shop-management-rvcp.onrender.com'
 '
 ```
 
