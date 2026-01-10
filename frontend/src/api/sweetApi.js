@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = 'https://kata-sweet-shop-jj7v.onrender.com/api';
+const API_BASE_URL = 'https://sweet-shop-management-hs5m.onrender.com/api';
 // Create axios instance with base URL
 const api = axios.create({
  baseURL: API_BASE_URL,

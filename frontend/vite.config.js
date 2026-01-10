@@ -6,7 +6,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'https://kata-sweet-shop-jj7v.onrender.com',
+        target: 'https://sweet-shop-management-hs5m.onrender.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
