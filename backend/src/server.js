@@ -12,13 +12,18 @@ const app = express();
    MIDDLEWARE
 ====================== */
 
-// ✅ IMPORTANT CHANGE (for Netlify + )
-// Allow frontend to talk to backend without CORS issues
+// ✅ FIXED CORS (Netlify frontend allowed)
 app.use(
   cors({
-    origin: "*",
+    origin: "https://sweet-shop-management.netlify.app",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
 );
+
+// ✅ Handle preflight requests
+app.options("*", cors());
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -48,7 +53,7 @@ app.get("/api/sweets", async (req, res) => {
     const sweets = await sweetService.getAllSweets();
     res.status(200).json(sweets || []);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ error: "Failed to fetch sweets" });
   }
 });
@@ -59,7 +64,7 @@ app.get("/api/sweets/search", async (req, res) => {
     const results = await sweetService.searchSweets(req.query);
     res.json(results || []);
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500).json({ error: "Failed to search sweets" });
   }
 });
@@ -74,6 +79,7 @@ app.get("/api/sweets/:id", async (req, res) => {
     }
     res.json(sweet);
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Failed to fetch sweet" });
   }
 });
@@ -112,6 +118,7 @@ app.delete("/api/sweets/:id", [protect, admin], async (req, res) => {
     }
     res.status(204).end();
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Failed to delete sweet" });
   }
 });
