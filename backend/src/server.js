@@ -12,14 +12,8 @@ const app = express();
    MIDDLEWARE
 ====================== */
 
-// ✅ SAFE CORS (Render + Netlify compatible)
-app.use(
-  cors({
-    origin: "*",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-  })
-);
+// ✅ FINAL SAFE CORS (auto handles OPTIONS)
+app.use(cors()); // <-- THIS IS THE KEY LINE
 
 app.use(express.json());
 app.use(morgan("dev"));
@@ -47,7 +41,7 @@ app.use("/api/auth", authRoutes);
 app.get("/api/sweets", async (req, res) => {
   try {
     const sweets = await sweetService.getAllSweets();
-    res.status(200).json(sweets || []);
+    res.json(sweets || []);
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to fetch sweets" });
