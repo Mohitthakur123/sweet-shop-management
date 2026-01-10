@@ -12,7 +12,7 @@ const app = express();
    MIDDLEWARE
 ====================== */
 
-// ✅ IMPORTANT CHANGE (for Netlify + Render)
+// ✅ IMPORTANT CHANGE (for Netlify + )
 // Allow frontend to talk to backend without CORS issues
 app.use(
   cors({

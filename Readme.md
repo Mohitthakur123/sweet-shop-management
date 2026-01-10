@@ -139,7 +139,8 @@ npm install
 Create a `.env` file inside the `frontend` directory:
 
 ```env
-VITE_API_BASE_URL='https://kata-sweet-shop-jj7v.onrender.com'
+VITE_API_BASE_URL='https://sweet-shop-management-hs5m.onrender.com'
+'
 ```
 
 Start the frontend server:
