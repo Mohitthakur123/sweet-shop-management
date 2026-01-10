@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,7 +10,7 @@ datasource db {
 model Sweet {
   id        Int      @id @default(autoincrement())
   name      String
-  category  String
+  category  String?      // ✅ optional (prevents insert failure)
   price     Float
   quantity  Int
 }
@@ -21,6 +18,6 @@ model Sweet {
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
-  password  String   // In a real app, this will be a hashed password
-  role      String   @default("admin") // Can be "user" or "admin"
+  password  String
+  role      String   @default("USER") // ✅ correct default
 }
