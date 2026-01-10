@@ -12,18 +12,14 @@ const app = express();
    MIDDLEWARE
 ====================== */
 
-// ✅ FIXED CORS (Netlify frontend allowed)
+// ✅ SAFE CORS (Render + Netlify compatible)
 app.use(
   cors({
-    origin: "https://sweet-shop-management.netlify.app",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true,
   })
 );
-
-// ✅ Handle preflight requests
-app.options("*", cors());
 
 app.use(express.json());
 app.use(morgan("dev"));
