@@ -1,0 +1,26 @@
+*{
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ===== Global Background Theme ===== */
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+
+  /* Aesthetic pastel background */
+  background: linear-gradient(135deg, #FDF2F8, #EEF2FF);
+  background-attachment: fixed;
+
+  color: #1F2937;
+}
