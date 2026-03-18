@@ -13,7 +13,7 @@ app.use(cors({
   origin: [
     "http://localhost:5173",
     "http://localhost:5174",
-    "https://sweet-shop-management-1-mewe.onrender.com"
+    "https://sweet-shop-management-1-umw4.onrender.com"
   ],
   credentials: true
 }));
