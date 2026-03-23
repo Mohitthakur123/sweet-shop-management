@@ -1,17 +1,19 @@
 import React from "react";
-import { AuthProvider } from './context/AuthContext.jsx';
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { CssBaseline } from '@mui/material'
+import { CssBaseline } from "@mui/material";
 import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext.jsx";
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
   <React.StrictMode>
-    <CssBaseline>
-    <BrowserRouter>       <AuthProvider>
-       <App />
-      </AuthProvider> 
+    <CssBaseline />
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
-    </CssBaseline>
   </React.StrictMode>
 );

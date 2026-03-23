@@ -10,7 +10,7 @@ const api = axios.create({
   },
 });
 
-// 👇 MODIFIED: Add the token to every request
+//  MODIFIED: Add the token to every request
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token');
@@ -38,7 +38,7 @@ api.interceptors.response.use(
 
 // --- Sweet API Functions ---
 
-export const getSweets = () => api.get("/sweets");
+export const getSweet = () => api.get("/sweets");
 
 export const getSweetById = (id) => api.get(`/sweets/${id}`);
 
