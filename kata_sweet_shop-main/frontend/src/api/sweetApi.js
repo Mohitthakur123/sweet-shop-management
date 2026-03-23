@@ -38,7 +38,7 @@ api.interceptors.response.use(
 
 // --- Sweet API Functions ---
 
-export const getSweet = () => api.get("/sweets");
+export const getSweets = () => api.get("/sweets");
 
 export const getSweetById = (id) => api.get(`/sweets/${id}`);
 
